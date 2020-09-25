@@ -1,0 +1,4 @@
+PSG,4,5,2,17,11
+Benfica,3,3,5,12,16
+Barcelona,8,1,2,20,9
+Liverpool,6,4,1,20,10
