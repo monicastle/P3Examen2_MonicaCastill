@@ -9,10 +9,12 @@ using namespace std;
 vector<Equipo*> equipos;
 void leerArchivo(string);
 int main(int argc, char *argv[]){
+    cout << setw(17) << "PJ" << setw(4) << "G" << setw(4) << "E" << setw(4) << "P" << setw(5) << "GA" << setw(5) << "GC" << setw(5) << "DG" << setw(6) << "PTS" <<endl;
     leerArchivo(argv[1]);
 } // Fin Main
 
 void leerArchivo(string nombre){
+    int cont = 1;
     string linea = "";
     fstream lector(nombre);
     Nodo* topePila;
@@ -39,12 +41,16 @@ void leerArchivo(string nombre){
         topePila = nullptr;
         nuevo = new Nodo(team);
         nuevo->setNextNode(topePila);
+        int letras = 14 - nuevo->team->getNombre().size();
+        cout << cont << "  " <<  nuevo->team->getNombre() << setw(letras) << nuevo->team->getPartidosJugados() << setw(4) << nuevo->team->getPartidosGanados() << setw(4) 
+        << nuevo->team->getPartidosEmpatados() << setw(4) << nuevo->team->getPartidosPerdidos() << setw(5) << nuevo->team->getGolesAFavor() << setw(5) << 
+        nuevo->team->getGolesEnContra() << setw(5) << nuevo->team->getDifGoles() << setw(5) << nuevo->team->getPuntaje() << endl;
+        cont++;
     } // Fin While
     /*while(nuevo!=NULL){
         cout<<ptr->data<<" " ;
         ptr=ptr->next;
     }*/
-    cout << nuevo->toString() << endl;
     lector.close();
 } // Fin Leer Archivo
 
