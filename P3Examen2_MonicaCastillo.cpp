@@ -15,6 +15,8 @@ int main(int argc, char *argv[]){
 void leerArchivo(string nombre){
     string linea = "";
     fstream lector(nombre);
+    Nodo* topePila;
+    Nodo* nuevo;
     while (!lector.eof()){
         lector >> linea;
         char separador = ','; 
@@ -34,13 +36,36 @@ void leerArchivo(string nombre){
         difGoles = golesAFavor - golesEnContra;
         puntaje = (partidosGanados * 3) + partidosEmpatados;
         Equipo* team = new Equipo(nombre, partidosJugados, partidosGanados, partidosEmpatados, partidosPerdidos, golesAFavor, golesEnContra, difGoles, puntaje);
-        Nodo* topePila = nullptr;
-        Nodo* nuevo = new Nodo(team);
+        topePila = nullptr;
+        nuevo = new Nodo(team);
         nuevo->setNextNode(topePila);
     } // Fin While
+    /*while(nuevo!=NULL){
+        cout<<ptr->data<<" " ;
+        ptr=ptr->next;
+    }*/
+    cout << nuevo->toString() << endl;
     lector.close();
 } // Fin Leer Archivo
 
+/*void selectionSort(Nodo **list) {
+    if (!*list) return;
+    Nodo **minadr=list,*cur=*list;
+    Equipo min= (*list) -> team;
+    while (cur) {
+        if (cur-> team < min) {
+            min = cur->team;
+            minadr=&(cur->apuntador);
+        }
+        cur=cur->apuntador;
+    }
+    if (minadr!=list) {
+        cur=*minadr;
+        *minadr=*list;
+        *list=cur;
+    }
+    selectionSort(&((*list)->apuntador));
+}*/
 /*void selectionSort(int arr[], int n)  {  
     int i, j, min_idx;  
   

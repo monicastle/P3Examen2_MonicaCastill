@@ -72,6 +72,9 @@ class Equipo{
         void setPuntaje(int puntaje){
             this->puntaje = puntaje;
         } // Fin Set Goles en Contra
+        string toString() {
+            return "" + nombre + "," + to_string(partidosJugados) + "," + to_string(puntaje);
+        } // Fin To String
         ~Equipo(){
         } // Fin Destructor Equipo
 }; // Fin Class Equipo

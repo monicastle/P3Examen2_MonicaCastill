@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 class Nodo{
-    Equipo* team;
-    Nodo* apuntador;
     public:
+        Equipo* team;
+        Nodo* apuntador;
         Nodo(){       
         } // Fin Constructor Nodo  
         Nodo(Equipo* team){
@@ -13,6 +13,9 @@ class Nodo{
         void setNextNode(Nodo* apuntador){
             this->apuntador = apuntador;
         } // Fin Set Next Node
+        string toString() {
+            return "" + team->toString();
+        } // Fin To String
         ~Nodo(){
         } // Fin Destructor Nodo
 }; // Fin Class Nodo
